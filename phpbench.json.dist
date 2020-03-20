@@ -1,0 +1,18 @@
+{
+  "bootstrap": "vendor/autoload.php",
+  "path": "tests/Benchmark",
+  "progress": "dots",
+  "retry_threshold": 5,
+  "time_unit": "seconds",
+  "reports": {
+    "my_report": {
+      "generator": "table"
+    }
+  },
+  "outputs": {
+    "my_output": {
+      "extends": "markdown",
+      "file": "tests/Benchmark/Benchmarks.md"
+    }
+  }
+}

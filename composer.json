@@ -1,0 +1,51 @@
+{
+    "name": "simivar/reverse-print-r",
+    "description": "Library to reverse print_r output to PHP objects, arrays and scalar values.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "vimeo/psalm": "^3.9",
+        "infection/infection": "^0.15.3",
+        "ergebnis/composer-normalize": "^2.2",
+        "phpbench/phpbench": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ReversePrintR\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Unit\\ReversePrintR\\": "tests/Unit",
+            "Tests\\Integration\\ReversePrintR\\": "tests/Integration"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "simivar",
+            "email": "simivar@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1"
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "infection": "vendor/bin/infection",
+        "test": "vendor/bin/phpunit",
+        "test-unit": "vendor/bin/phpunit --testsuite Unit",
+        "test-integration": "vendor/bin/phpunit --testsuite Integration",
+        "bench": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/phpbench run --report=my_report --output=my_output"
+        ],
+        "qa": [
+            "@psalm",
+            "@test",
+            "@infection"
+        ]
+    }
+}
